@@ -7,8 +7,6 @@
 // parent includes
 // #include "../timer/micro.h"
 
-#define TICK_TIME 8
-
 // namespace timer {
 // class Micro;
 // }
@@ -42,12 +40,12 @@ class Micro : public Timeout {
   Micro();
 
   /**
-   * @brief Start TIMER2 interrupt
+   * @brief Start TIM2 interrupt
    */
   static void StartHardware();
 
   /**
-   * @brief Stop TIMER2 interrupt
+   * @brief Stop TIM2 interrupt
    */
   static void StopHardware();
 };

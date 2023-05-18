@@ -2,6 +2,8 @@
 
 #include <stm32f1xx.h>
 
+#define TICK_TIME 8
+
 namespace timeout {
 
 bool Micro::hw_initialized_ = false;

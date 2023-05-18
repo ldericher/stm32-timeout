@@ -23,8 +23,8 @@ void Micro::InitHardware() {
     SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM2EN);
 
     // PSC, ARR: 1 tick per 10 us
-    TIM2->PSC = SystemCoreClock / 1000000UL - 1;
-    TIM2->ARR = 10;
+    TIM2->PSC = 9;
+    TIM2->ARR = SystemCoreClock / 1000000UL;
 
     // enable counter
     SET_BIT(TIM2->CR1, TIM_CR1_CEN);

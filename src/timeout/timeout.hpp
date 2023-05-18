@@ -21,6 +21,9 @@ class Timeout {
   /// remaining time units until callback
   volatile uint32_t remaining_;
 
+  /// time units passed per tick
+  uint32_t const tick_time_;
+
   /// the callback function
   Callback callback_;
 
@@ -38,9 +41,10 @@ class Timeout {
   /**
    * @brief Construct a new Timeout object
    *
+   * @param tick_time time units passing between each tick
    * @param first reference to head of Object List for this class
    */
-  explicit Timeout(Timeout*& first);
+  explicit Timeout(uint32_t tick_time, Timeout*& first);
 
   /**
    * @brief Lets a tick pass for all objects linked behind a chosen one

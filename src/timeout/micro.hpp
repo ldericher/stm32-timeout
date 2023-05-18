@@ -7,6 +7,8 @@
 // parent includes
 // #include "../timer/micro.h"
 
+#define TICK_TIME 8
+
 // namespace timer {
 // class Micro;
 // }

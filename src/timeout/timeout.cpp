@@ -5,8 +5,9 @@
 
 namespace timeout {
 
-Timeout::Timeout(Timeout*& first)
+Timeout::Timeout(uint32_t tick_time, Timeout*& first)
     : remaining_(0),
+      tick_time_(tick_time),
       callback_(nullptr),
       context_(nullptr) {
   // register Timer
@@ -16,9 +17,12 @@ Timeout::Timeout(Timeout*& first)
 
 void Timeout::Tick() {
   if (remaining_ > 0) {
-    remaining_--;
-
-    if (remaining_ == 0) {
+    if (remaining_ > tick_time_) {
+      // there was more than one tick remaining
+      remaining_ -= tick_time_;
+    } else {
+      // exactly or less than one tick remaining
+      remaining_ = 0;
       Trigger();
     }
   }

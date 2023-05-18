@@ -22,8 +22,8 @@ void Micro::InitHardware() {
     // enable TIM2 clock
     SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM2EN);
 
-    // PSC, ARR: 1 tick per 10 us
-    TIM2->PSC = 9;
+    // PSC, ARR: 1 tick per TICK_TIME us
+    TIM2->PSC = TICK_TIME - 1;
     TIM2->ARR = SystemCoreClock / 1000000UL;
 
     // enable counter
@@ -31,7 +31,7 @@ void Micro::InitHardware() {
   }
 }
 
-Micro::Micro() : Timeout(first_) {
+Micro::Micro() : Timeout(TICK_TIME, first_) {
   InitHardware();
 }
 

@@ -1,0 +1,13 @@
+{
+  "name": "STM32Timeout",
+  "version": "0.0.1",
+  "description": "Timeouts with Callbacks for STM32",
+  "keywords": [
+    "stm32",
+    "timer",
+    "timeout",
+    "callback",
+    "no-arduino",
+    "non-blocking"
+  ]
+}

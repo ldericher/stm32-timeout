@@ -1,0 +1,19 @@
+#ifndef LIB_AVR_TIMEOUT_SRC_TIMER_MILLI_H_
+#define LIB_AVR_TIMEOUT_SRC_TIMER_MILLI_H_
+
+// parent includes
+#include "../timeout/milli.h"
+
+// local includes
+#include "timer.h"
+
+namespace timer {
+
+class Milli : public Timer {
+ public:
+  Milli();
+};
+
+}  // namespace timer
+
+#endif /* LIB_AVR_TIMEOUT_SRC_TIMER_MILLI_H_ */

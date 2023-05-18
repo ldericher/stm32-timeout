@@ -1,0 +1,13 @@
+// parent includes
+#include "../timeout/milli.inc.h"
+
+// local includes
+#include "milli.h"
+
+namespace timer {
+
+Milli::Milli() : timer::Timer(RESOLUTION, timeout::Milli::first_) {
+  timeout::Milli::InitHardware();
+}
+
+}  // namespace timer

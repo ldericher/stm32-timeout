@@ -1,0 +1,48 @@
+#include "milli.h"
+
+#include "milli.inc.h"
+
+namespace timeout {
+
+bool Milli::hw_initialized_ = false;
+Timeout* Milli::first_ = nullptr;
+
+void Milli::TickTimers_ms() {
+  if (first_) {
+    ((Milli*)first_)->TickAll();
+  }
+}
+
+void Milli::InitHardware() {
+  if (!hw_initialized_) {
+    // ### USE TIMER2 ###
+
+    // set prescaler according to define
+    TCCR2B = _BV(CS22) | _BV(CS21) | _BV(CS20);
+
+    // mode: CTC
+    TCCR2A = _BV(WGM21);
+
+    // set OCR value according to define
+    OCR2A = OCR_VAL;
+  }
+}
+
+Milli::Milli() : Timeout(RESOLUTION, first_) {
+  InitHardware();
+}
+
+void Milli::StartHardware() {
+  // reset timer
+  TCNT2 = 0;
+
+  // enable OCR interrupt A
+  TIMSK2 |= _BV(OCIE2A);
+}
+
+void Milli::StopHardware() {
+  // disable OCR interrupt A
+  TIMSK2 &= ~_BV(OCIE2A);
+}
+
+}  // namespace timeout

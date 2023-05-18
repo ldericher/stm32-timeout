@@ -1,0 +1,21 @@
+#ifndef LIB_AVR_TIMEOUT_SRC_TIMEOUT_MILLI_INC_H_
+#define LIB_AVR_TIMEOUT_SRC_TIMEOUT_MILLI_INC_H_
+
+/// tick every 11 ms
+#define RESOLUTION 11UL
+
+/// ms Timer needs prescaler 1024
+#define PRESCALER 1024UL
+
+/// value for OCR register
+#define OCR_VAL (F_CPU / (PRESCALER * 1000UL / RESOLUTION))
+
+// check the actual resolution
+#if ((PRESCALER * 1000UL * OCR_VAL) / F_CPU) < RESOLUTION
+#pragma message "Adjusted ms_Timeout resolution!"
+#undef OCR_VAL
+/// value for OCR register
+#define OCR_VAL ((F_CPU / (PRESCALER * (1000UL / RESOLUTION))) + 1)
+#endif
+
+#endif /* LIB_AVR_TIMEOUT_SRC_TIMEOUT_MILLI_INC_H_ */

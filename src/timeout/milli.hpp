@@ -5,11 +5,11 @@
 #include "timeout.hpp"
 
 // parent includes
-// #include "../timer/milli.h"
+#include "../timer/milli.hpp"
 
-// namespace timer {
-// class Milli;
-// }
+namespace timer {
+class Milli;
+}
 
 namespace timeout {
 
@@ -33,8 +33,8 @@ class Milli : public Timeout {
   /// initialize TIM3
   static void InitHardware();
 
-  // // allow timer::Milli to call InitHardware
-  // friend class timer::Milli;
+  // allow timer::Milli to call InitHardware
+  friend class timer::Milli;
 
  public:
   /**

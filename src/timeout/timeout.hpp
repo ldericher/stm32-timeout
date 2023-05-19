@@ -83,6 +83,11 @@ class Timeout {
 
   virtual bool IsRunning() const;
 
+  /**
+   * @brief Block until timeout finishes
+  */
+  virtual void Wait();
+
   virtual void Stop();
 };
 

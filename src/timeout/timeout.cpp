@@ -22,8 +22,8 @@ void Timeout::Tick() {
       remaining_ -= tick_time_;
     } else {
       // exactly or less than one tick remaining
-      remaining_ = 0;
       Trigger();
+      remaining_ = 0;
     }
   }
 }
@@ -48,7 +48,9 @@ void Timeout::Start(uint32_t target) {
     remaining_ = target;
   } else {
     // instantly trigger the callback
+    remaining_ = 1;
     Trigger();
+    remaining_ = 0;
   }
 }
 
@@ -71,6 +73,10 @@ void Timeout::Start(uint32_t target, SimpleCallback callback) {
 
 bool Timeout::IsRunning() const {
   return remaining_ != 0;
+}
+
+void Timeout::Wait() {
+  while (IsRunning()) {}
 }
 
 void Timeout::Stop() {

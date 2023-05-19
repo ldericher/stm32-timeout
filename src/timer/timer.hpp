@@ -1,5 +1,5 @@
-#ifndef LIB_AVR_TIMEOUT_SRC_TIMER_TIMER_H_
-#define LIB_AVR_TIMEOUT_SRC_TIMER_TIMER_H_
+#ifndef LIB_STM32_TIMEOUT_SRC_TIMER_TIMER_H_
+#define LIB_STM32_TIMEOUT_SRC_TIMER_TIMER_H_
 
 #include "../timeout/timeout.hpp"
 
@@ -12,7 +12,7 @@ namespace timer {
 class Timer : public timeout::Timeout {
  private:
   /// time units between callbacks
-  uint16_t target_;
+  uint32_t target_;
 
   /// true if and only if the timer is running
   volatile bool running_;
@@ -24,14 +24,14 @@ class Timer : public timeout::Timeout {
    * @param tick_time time units passing between each tick
    * @param first reference to head of Object List for this class
    */
-  explicit Timer(uint16_t tick_time, Timeout*& first);
+  explicit Timer(uint32_t tick_time, Timeout*& first);
 
   /**
    * @brief Starts a new timer
    *
    * @param target time units between triggers
    */
-  virtual void Start(uint16_t target);
+  virtual void Start(uint32_t target);
 
   virtual void Trigger();
 
@@ -43,7 +43,7 @@ class Timer : public timeout::Timeout {
    * @param callback function to be triggered
    * @param context parameter to be passed to callback
    */
-  inline void Start(uint16_t target, timeout::Callback callback,
+  inline void Start(uint32_t target, timeout::Callback callback,
                     void* context) {
     timeout::Timeout::Start(target, callback, context);
   }
@@ -54,7 +54,7 @@ class Timer : public timeout::Timeout {
    * @param target time units between triggers
    * @param callback function to be triggered
    */
-  inline void Start(uint16_t target, timeout::SimpleCallback callback) {
+  inline void Start(uint32_t target, timeout::SimpleCallback callback) {
     timeout::Timeout::Start(target, callback);
   }
 
@@ -80,4 +80,4 @@ class Timer : public timeout::Timeout {
 
 }  // namespace timer
 
-#endif /* LIB_AVR_TIMEOUT_SRC_TIMER_TIMER_H_ */
+#endif /* LIB_STM32_TIMEOUT_SRC_TIMER_TIMER_H_ */

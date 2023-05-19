@@ -1,11 +1,11 @@
-#include "timer.h"
+#include "timer.hpp"
 
 namespace timer {
 
-Timer::Timer(uint16_t tick_time, Timeout*& first)
+Timer::Timer(uint32_t tick_time, Timeout*& first)
     : timeout::Timeout::Timeout(tick_time, first), running_(false) {}
 
-void Timer::Start(uint16_t target) {
+void Timer::Start(uint32_t target) {
   // minimum one tick per trigger
   running_ = true;
   target_ = (target > 0) ? target : 1;

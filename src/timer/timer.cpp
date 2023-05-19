@@ -3,7 +3,8 @@
 namespace timer {
 
 Timer::Timer(uint32_t tick_time, Timeout*& first)
-    : timeout::Timeout::Timeout(tick_time, first), running_(false) {}
+    : timeout::Timeout::Timeout(tick_time, first),
+      running_(false) {}
 
 void Timer::Start(uint32_t target) {
   // minimum one tick per trigger

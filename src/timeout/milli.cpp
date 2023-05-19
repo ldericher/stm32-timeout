@@ -32,7 +32,8 @@ void Milli::InitHardware() {
   }
 }
 
-Milli::Milli() : Timeout(Milli::tick_time_, first_) {
+Milli::Milli()
+    : Timeout(Milli::tick_time_, first_) {
   InitHardware();
 }
 

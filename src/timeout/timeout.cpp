@@ -60,7 +60,7 @@ void Timeout::Start(uint32_t target, Callback callback, void* context) {
   context_ = context;
   Start(target);
 
-  if(interrupts_enabled) {
+  if (interrupts_enabled) {
     __enable_irq();
   }
 }

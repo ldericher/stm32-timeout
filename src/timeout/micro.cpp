@@ -32,7 +32,8 @@ void Micro::InitHardware() {
   }
 }
 
-Micro::Micro() : Timeout(Micro::tick_time_, first_) {
+Micro::Micro()
+    : Timeout(Micro::tick_time_, first_) {
   InitHardware();
 }
 

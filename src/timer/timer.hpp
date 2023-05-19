@@ -15,7 +15,7 @@ class Timer : public timeout::Timeout {
   uint32_t target_;
 
   /// true if and only if the timer is running
-  volatile bool running_;
+  bool volatile running_;
 
  protected:
   /**
@@ -43,7 +43,8 @@ class Timer : public timeout::Timeout {
    * @param callback function to be triggered
    * @param context parameter to be passed to callback
    */
-  inline void Start(uint32_t target, timeout::Callback callback,
+  inline void Start(uint32_t target,
+                    timeout::Callback callback,
                     void* context) {
     timeout::Timeout::Start(target, callback, context);
   }

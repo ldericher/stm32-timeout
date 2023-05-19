@@ -18,6 +18,9 @@ namespace timeout {
  */
 class Milli : public Timeout {
  private:
+  /// time units passed per tick
+  static uint32_t const tick_time_;
+  
   /// true if and only if TIM3 has been initialized
   static bool hw_initialized_;
 

@@ -2,10 +2,9 @@
 
 #include <stm32f1xx.h>
 
-#define TICK_TIME 1
-
 namespace timeout {
 
+uint32_t const Milli::tick_time_ = 1;
 bool Milli::hw_initialized_ = false;
 Timeout* Milli::first_ = nullptr;
 
@@ -24,8 +23,8 @@ void Milli::InitHardware() {
     // enable TIM3 clock
     SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM3EN);
 
-    // PSC, ARR: 1 tick per TICK_TIME ms
-    TIM3->PSC = TICK_TIME * 1000 - 1;
+    // PSC, ARR: 1 tick per Milli::tick_time_ ms
+    TIM3->PSC = Milli::tick_time_ * 1000 - 1;
     TIM3->ARR = SystemCoreClock / 1000000UL;
 
     // enable counter
@@ -33,7 +32,7 @@ void Milli::InitHardware() {
   }
 }
 
-Milli::Milli() : Timeout(TICK_TIME, first_) {
+Milli::Milli() : Timeout(Milli::tick_time_, first_) {
   InitHardware();
 }
 

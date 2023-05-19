@@ -2,10 +2,9 @@
 
 #include <stm32f1xx.h>
 
-#define TICK_TIME 8
-
 namespace timeout {
 
+uint32_t const Micro::tick_time_ = 8;
 bool Micro::hw_initialized_ = false;
 Timeout* Micro::first_ = nullptr;
 
@@ -24,8 +23,8 @@ void Micro::InitHardware() {
     // enable TIM2 clock
     SET_BIT(RCC->APB1ENR, RCC_APB1ENR_TIM2EN);
 
-    // PSC, ARR: 1 tick per TICK_TIME us
-    TIM2->PSC = TICK_TIME - 1;
+    // PSC, ARR: 1 tick per Micro::tick_time_ us
+    TIM2->PSC = Micro::tick_time_ - 1;
     TIM2->ARR = SystemCoreClock / 1000000UL;
 
     // enable counter
@@ -33,7 +32,7 @@ void Micro::InitHardware() {
   }
 }
 
-Micro::Micro() : Timeout(TICK_TIME, first_) {
+Micro::Micro() : Timeout(Micro::tick_time_, first_) {
   InitHardware();
 }
 

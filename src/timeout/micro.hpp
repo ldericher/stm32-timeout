@@ -18,6 +18,9 @@ namespace timeout {
  */
 class Micro : public Timeout {
  private:
+  /// time units passed per tick
+  static uint32_t const tick_time_;
+
   /// true if and only if TIM2 has been initialized
   static bool hw_initialized_;
 

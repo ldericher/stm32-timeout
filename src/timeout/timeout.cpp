@@ -22,8 +22,8 @@ void Timeout::Tick() {
       remaining_ -= tick_time_;
     } else {
       // exactly or less than one tick remaining
-      Trigger();
       remaining_ = 0;
+      Trigger();
     }
   }
 }
@@ -48,9 +48,8 @@ void Timeout::Start(uint32_t target) {
     remaining_ = target;
   } else {
     // instantly trigger the callback
-    remaining_ = 1;
-    Trigger();
     remaining_ = 0;
+    Trigger();
   }
 }
 
@@ -76,7 +75,9 @@ bool Timeout::IsRunning() const {
 }
 
 void Timeout::Wait() {
-  while (IsRunning()) {}
+  while (IsRunning()) {
+    asm volatile("nop;");
+  }
 }
 
 void Timeout::Stop() {

@@ -31,9 +31,9 @@ class Timer : public timeout::Timeout {
    *
    * @param target time units between triggers
    */
-  virtual void Start(uint32_t target);
+  virtual void Start(uint32_t target) override;
 
-  virtual void Trigger();
+  virtual void Trigger() override;
 
  public:
   /**
@@ -65,12 +65,12 @@ class Timer : public timeout::Timeout {
    * @return true timer is runnning
    * @return false timer is stopped
    */
-  virtual bool IsRunning() const;
+  virtual bool IsRunning() const override;
 
   /**
    * @brief Stop the timer
    */
-  virtual void Stop();
+  virtual void Stop() override;
 
   /**
    * @brief Resumes a stopped, previously started timer. Do not use on timers

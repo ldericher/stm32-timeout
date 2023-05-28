@@ -12,6 +12,16 @@ namespace timer {
 class Milli : public Timer {
  public:
   Milli();
+
+  /**
+   * @brief Start TIM3 interrupt
+   */
+  static void StartHardware();
+
+  /**
+   * @brief Stop TIM3 interrupt
+   */
+  static void StopHardware();
 };
 
 }  // namespace timer

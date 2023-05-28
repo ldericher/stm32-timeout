@@ -12,6 +12,16 @@ namespace timer {
 class Micro : public Timer {
  public:
   Micro();
+
+  /**
+   * @brief Start TIM2 interrupt
+   */
+  static void StartHardware();
+
+  /**
+   * @brief Stop TIM2 interrupt
+   */
+  static void StopHardware();
 };
 
 }  // namespace timer

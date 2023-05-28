@@ -8,4 +8,12 @@ Milli::Milli()
   timeout::Milli::InitHardware();
 }
 
+void Milli::StartHardware() {
+  timeout::Milli::StartHardware();
+}
+
+void Milli::StopHardware() {
+  timeout::Milli::StopHardware();
+}
+
 }  // namespace timer

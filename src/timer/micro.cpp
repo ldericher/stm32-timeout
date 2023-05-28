@@ -8,4 +8,12 @@ Micro::Micro()
   timeout::Micro::InitHardware();
 }
 
+void Micro::StartHardware() {
+  timeout::Micro::StartHardware();
+}
+
+void Micro::StopHardware() {
+  timeout::Micro::StopHardware();
+}
+
 }  // namespace timer

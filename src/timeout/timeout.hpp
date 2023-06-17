@@ -86,7 +86,7 @@ class Timeout {
 
   /**
    * @brief Block until timeout finishes
-  */
+   */
   virtual void Wait();
 
   virtual void Stop();

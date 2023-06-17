@@ -3,6 +3,7 @@
 
 // lib includes
 #include <stdint.h>
+#include <timeout/delay.hpp>
 
 namespace timeout {
 

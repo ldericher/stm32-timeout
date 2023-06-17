@@ -7,7 +7,7 @@
 // local includes
 #include "timer.hpp"
 
-namespace timer {
+namespace yvk::timer {
 
 class Milli : public Timer {
  public:
@@ -24,6 +24,6 @@ class Milli : public Timer {
   static void StopHardware();
 };
 
-}  // namespace timer
+}  // namespace yvk::timer
 
 #endif /* LIB_STM32_TIMEOUT_SRC_TIMER_MILLI_H_ */

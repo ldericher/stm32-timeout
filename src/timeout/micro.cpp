@@ -2,7 +2,7 @@
 
 #include <stm32f1xx.h>
 
-namespace timeout {
+namespace yvk::timeout {
 
 uint32_t const Micro::tick_time_ = 8;
 bool Micro::hw_initialized_ = false;
@@ -54,4 +54,4 @@ void Micro::StopHardware() {
   CLEAR_BIT(TIM2->SR, TIM_SR_UIF);
 }
 
-}  // namespace timeout
+}  // namespace yvk::timeout

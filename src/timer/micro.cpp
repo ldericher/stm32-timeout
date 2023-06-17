@@ -1,7 +1,7 @@
 // local includes
 #include "micro.hpp"
 
-namespace timer {
+namespace yvk::timer {
 
 Micro::Micro()
     : timer::Timer(timeout::Micro::tick_time_, timeout::Micro::first_) {
@@ -16,4 +16,4 @@ void Micro::StopHardware() {
   timeout::Micro::StopHardware();
 }
 
-}  // namespace timer
+}  // namespace yvk::timer

@@ -7,11 +7,11 @@
 // parent includes
 #include "../timer/milli.hpp"
 
-namespace timer {
+namespace yvk::timer {
 class Milli;
 }
 
-namespace timeout {
+namespace yvk::timeout {
 
 /**
  * @brief triggers after a set amount of milliseconds, uses TIM3
@@ -53,6 +53,6 @@ class Milli : public Timeout {
   static void StopHardware();
 };
 
-}  // namespace timeout
+}  // namespace yvk::timeout
 
 #endif /* LIB_STM32_TIMEOUT_SRC_TIMEOUT_MILLI_H_ */

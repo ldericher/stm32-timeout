@@ -2,7 +2,7 @@
 
 #include <stm32f1xx.h>
 
-namespace timeout {
+namespace yvk::timeout {
 
 uint32_t const Milli::tick_time_ = 1;
 bool Milli::hw_initialized_ = false;
@@ -54,4 +54,4 @@ void Milli::StopHardware() {
   CLEAR_BIT(TIM3->SR, TIM_SR_UIF);
 }
 
-}  // namespace timeout
+}  // namespace yvk::timeout

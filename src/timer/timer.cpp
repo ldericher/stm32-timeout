@@ -1,6 +1,6 @@
 #include "timer.hpp"
 
-namespace timer {
+namespace yvk::timer {
 
 Timer::Timer(uint32_t tick_time, Timeout*& first)
     : timeout::Timeout::Timeout(tick_time, first),
@@ -34,4 +34,4 @@ void Timer::Resume() {
   }
 }
 
-}  // namespace timer
+}  // namespace yvk::timer

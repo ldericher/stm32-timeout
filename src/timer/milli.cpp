@@ -1,7 +1,7 @@
 // local includes
 #include "milli.hpp"
 
-namespace timer {
+namespace yvk::timer {
 
 Milli::Milli()
     : timer::Timer(timeout::Milli::tick_time_, timeout::Milli::first_) {
@@ -16,4 +16,4 @@ void Milli::StopHardware() {
   timeout::Milli::StopHardware();
 }
 
-}  // namespace timer
+}  // namespace yvk::timer

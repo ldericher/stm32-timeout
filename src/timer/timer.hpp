@@ -3,7 +3,7 @@
 
 #include "../timeout/timeout.hpp"
 
-namespace timer {
+namespace yvk::timer {
 
 /**
  * @brief triggers callback function every set amount of time units,
@@ -79,6 +79,6 @@ class Timer : public timeout::Timeout {
   void Resume();
 };
 
-}  // namespace timer
+}  // namespace yvk::timer
 
 #endif /* LIB_STM32_TIMEOUT_SRC_TIMER_TIMER_H_ */

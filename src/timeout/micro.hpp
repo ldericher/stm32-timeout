@@ -7,11 +7,11 @@
 // parent includes
 #include "../timer/micro.hpp"
 
-namespace timer {
+namespace yvk::timer {
 class Micro;
 }
 
-namespace timeout {
+namespace yvk::timeout {
 
 /**
  * @brief triggers after a set amount of microseconds, uses TIM2
@@ -53,6 +53,6 @@ class Micro : public Timeout {
   static void StopHardware();
 };
 
-}  // namespace timeout
+}  // namespace yvk::timeout
 
 #endif /* LIB_STM32_TIMEOUT_SRC_TIMEOUT_MICRO_H_ */

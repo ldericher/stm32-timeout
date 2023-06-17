@@ -3,7 +3,7 @@
 #include <cmsis_gcc.h>
 #include <stdbool.h>
 
-namespace timeout {
+namespace yvk::timeout {
 
 Timeout::Timeout(uint32_t tick_time, Timeout*& first)
     : remaining_(0),
@@ -84,4 +84,4 @@ void Timeout::Stop() {
   remaining_ = 0;
 }
 
-}  // namespace timeout
+}  // namespace yvk::timeout

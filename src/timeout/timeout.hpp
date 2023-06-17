@@ -3,9 +3,11 @@
 
 // lib includes
 #include <stdint.h>
-#include <timeout/delay.hpp>
 
-namespace timeout {
+#include "delay.hpp"
+
+
+namespace yvk::timeout {
 
 /// a standard callback function with context
 typedef void (*Callback)(void*);
@@ -92,6 +94,6 @@ class Timeout {
   virtual void Stop();
 };
 
-}  // namespace timeout
+}  // namespace yvk::timeout
 
 #endif /* LIB_STM32_TIMEOUT_SRC_TIMEOUT_TIMEOUT_H_ */

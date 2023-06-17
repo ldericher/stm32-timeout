@@ -2,7 +2,7 @@
 #include "micro.hpp"
 #include "milli.hpp"
 
-namespace timeout {
+namespace yvk::timeout {
 
 template <typename T>
 void Delay(uint32_t target) {
@@ -21,4 +21,4 @@ void Delay(uint32_t target) {
 template void Delay<Milli>(uint32_t target);
 template void Delay<Micro>(uint32_t target);
 
-}  // namespace timeout
+}  // namespace yvk::timeout

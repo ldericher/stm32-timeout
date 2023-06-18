@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-namespace yvk::timeout {
+namespace yvk {
 
 /**
  * @brief Blocking wait for (a minimum of) given time units
@@ -13,6 +13,6 @@ namespace yvk::timeout {
 template <typename T>
 void Delay(uint32_t target);
 
-}  // namespace yvk::timeout
+}  // namespace yvk
 
 #endif /* LIB_STM32_TIMEOUT_SRC_TIMEOUT_DELAY_H_ */

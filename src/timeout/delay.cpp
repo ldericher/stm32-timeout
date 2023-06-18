@@ -2,23 +2,20 @@
 #include "micro.hpp"
 #include "milli.hpp"
 
-namespace yvk::timeout {
+namespace yvk {
 
 template <typename T>
 void Delay(uint32_t target) {
-  static SimpleCallback nop = []() {
+  static timeout::SimpleCallback nop = []() {
     asm volatile("nop;");
   };
 
   static auto timeout = T();
   timeout.Start(target, nop);
-
-  while (timeout.IsRunning()) {
-    asm volatile("nop;");
-  }
+  timeout.Wait();
 }
 
-template void Delay<Milli>(uint32_t target);
-template void Delay<Micro>(uint32_t target);
+template void Delay<timeout::Milli>(uint32_t target);
+template void Delay<timeout::Micro>(uint32_t target);
 
-}  // namespace yvk::timeout
+}  // namespace yvk

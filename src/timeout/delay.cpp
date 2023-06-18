@@ -10,7 +10,7 @@ void Delay(uint32_t target) {
     asm volatile("nop;");
   };
 
-  static auto timeout = T();
+  auto timeout = T();
   timeout.Start(target, nop);
   timeout.Wait();
 }

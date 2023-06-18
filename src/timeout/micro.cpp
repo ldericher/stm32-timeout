@@ -37,6 +37,10 @@ Micro::Micro()
   InitHardware();
 }
 
+Micro::~Micro() {
+  Unregister(first_);
+}
+
 void Micro::StartHardware() {
   // reset timer
   TIM2->CNT = 0;

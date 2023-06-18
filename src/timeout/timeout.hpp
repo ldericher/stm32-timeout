@@ -49,6 +49,8 @@ class Timeout {
    */
   explicit Timeout(uint32_t tick_time, Timeout*& first);
 
+  void Unregister(Timeout*& first);
+
   /**
    * @brief Lets a tick pass for all objects linked behind a chosen one
    */

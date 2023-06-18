@@ -37,6 +37,10 @@ Milli::Milli()
   InitHardware();
 }
 
+Milli::~Milli() {
+  Unregister(first_);
+}
+
 void Milli::StartHardware() {
   // reset timer
   TIM3->CNT = 0;

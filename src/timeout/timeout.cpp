@@ -10,9 +10,32 @@ Timeout::Timeout(uint32_t tick_time, Timeout*& first)
       tick_time_(tick_time),
       callback_(nullptr),
       context_(nullptr) {
-  // register Timer
+  // register Timeout
   next_ = first;
   first = this;
+}
+
+void Timeout::Unregister(Timeout*& first) {
+  // check if first Timeout is "this"
+  if (first == this) {
+    // unregister Timeout
+    first = this->next_;
+    return;
+  }
+
+  // find "this" in Timeout chain
+  auto current = first;
+  while (current->next_ != this) {
+    // check if Timeout already unregistered
+    if (current->next_ == nullptr) {
+      return;
+    }
+
+    current = current->next_;
+  }
+
+  // unregister Timeout
+  current->next_ = current->next_->next_;
 }
 
 void Timeout::Tick() {

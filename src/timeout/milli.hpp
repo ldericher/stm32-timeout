@@ -42,6 +42,8 @@ class Milli : public Timeout {
    */
   Milli();
 
+  virtual ~Milli();
+
   /**
    * @brief Start TIM3 interrupt
    */

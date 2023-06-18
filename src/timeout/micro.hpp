@@ -42,6 +42,8 @@ class Micro : public Timeout {
    */
   Micro();
 
+  virtual ~Micro();
+
   /**
    * @brief Start TIM2 interrupt
    */
